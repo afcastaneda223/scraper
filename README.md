@@ -18,7 +18,7 @@
 ## Built With
 
 - Ruby
-- Nicogiri gem
+- Nocogiri gem
 - Rubocop
 
 
