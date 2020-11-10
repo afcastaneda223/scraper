@@ -12,6 +12,7 @@ GEM
     multi_xml (0.6.0)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    open-uri (0.1.0)
 
 PLATFORMS
   ruby
@@ -20,6 +21,7 @@ DEPENDENCIES
   byebug
   httparty
   nokogiri
+  open-uri
 
 BUNDLED WITH
    1.17.2

@@ -1,11 +1,11 @@
 require 'nokogiri'
 require 'httparty'
 require 'byebug'
+require 'open-uri'
 
 def scrapper
   url = 'https://relocate.me/search'
-  raw_page = HTTParty.get(url)
-  clear_page = Nokogiri::HTML(raw_page)
+  clear_page = Nokogiri::HTML(open(url))
   jobs_array = []
   job_cards = clear_page.css('div.jobs-list__job')
   page_number = 1
@@ -14,8 +14,7 @@ def scrapper
   last_page = (total / jobs_x_page).round
   while page_number <= last_page
     numbered_url = "https://relocate.me/search?page=#{page_number}"
-    numbered_raw_page = HTTParty.get(numbered_url)
-    numbered_clear_page = Nokogiri::HTML(numbered_raw_page)
+    numbered_clear_page = Nokogiri::HTML(open(numbered_url))
     numbered_job_cards = numbered_clear_page.css('div.jobs-list__job')
     numbered_job_cards.each do |x|
       job = {
@@ -27,6 +26,7 @@ def scrapper
     end
     page_number += 1
   end
+  puts jobs_array.first
 end
 
 scrapper
