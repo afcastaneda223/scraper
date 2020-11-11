@@ -16,9 +16,10 @@ Each job search will include
 
 ## Scrapper preview
 
-![screenshot](/images/img1.PNG)
+![screenshot](/images/img1.png)
+images/img1.png
 
-![screenshot](/images/img2.PNG)
+![screenshot](/images/img2.png)
 
 
 ## Built With
