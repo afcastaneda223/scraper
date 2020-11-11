@@ -1,6 +1,4 @@
 require 'nokogiri'
-require 'httparty'
-require 'byebug'
 require 'open-uri'
 
 def scrapper
@@ -25,8 +23,14 @@ def scrapper
       jobs_array << job
     end
     page_number += 1
+    porc = (page_number / (last_page + 1).to_f) * 100
+    puts " #{porc.to_i.round}%"
   end
-  puts jobs_array.first
+  jobs_array.each_with_index do |x, y|
+    puts "#{y+1} - #{x}"
+    puts " "
+  end
+  puts "There are #{jobs_array.count} jobs to aply"
 end
 
 scrapper
