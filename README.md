@@ -16,9 +16,7 @@ Each job search will include
 
 ## Scrapper preview
 
-<<<<<<< HEAD
 ![screenshot](/images/img1.png)
-images/img1.png
 
 ![screenshot](/images/img2.png)
 
