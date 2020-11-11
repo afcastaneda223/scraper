@@ -5,14 +5,20 @@
 
 ## Scrapper Instruccions
 
- 
-## Setup
-
+In the terminal just run ruby scrapper.rb
+The scrapper will show the % of completion wile running.
+It will return an array including the index of the job search
+Each job search will include 
+    :title=>"Senior Product Manager in Barcelona, Spain", 
+    :company=>"Tilting Point", 
+    :url=>"https://relocate.me//spain/barcelona/tilting-point/senior-product-manager-6327"}
 
 
 ## Scrapper preview
 
+![screenshot](./images/img1.PNG)
 
+![screenshot](./images/img2.PNG)
 
 
 ## Built With
@@ -28,8 +34,7 @@
 
 ## GitHub Repo
 
--  https://github.com/afcastaneda223/
-
+-  https://github.com/afcastaneda223/scrapper
 
 ## Author
 
