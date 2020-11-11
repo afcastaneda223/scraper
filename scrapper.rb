@@ -30,7 +30,7 @@ def scrapper
     puts "#{y + 1} - #{x}"
     puts ' '
   end
-  puts "There are #{jobs_array.count} jobs to aply"
+  puts "There are #{jobs_array.count} jobs to apply"
 end
 
 scrapper
