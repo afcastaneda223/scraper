@@ -21,11 +21,6 @@ Each job search will include
 images/img1.png
 
 ![screenshot](/images/img2.png)
-=======
-![screenshot](./images/img1.PNG)
-
-![screenshot](./images/img2.PNG)
->>>>>>> 4dceec9b747dd6bbf178ca7d6b4d3a28c923180b
 
 
 ## Built With
