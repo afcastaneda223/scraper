@@ -1,19 +1,29 @@
+require 'nokogiri'
+require 'open-uri'
 
 class Logic
-    def initialize
-        attr_reader :last_page :jobs_x_page
-        url = open('https://relocate.me/search')
-        clear_page = Nokogiri::HTML(url)
-        job_cards = clear_page.css('div.jobs-list__job')
-        page_number = 1
-        @jobs_x_page = (job_cards.count.to_f - 1.0)
-        total = clear_page.css('h1.search-page__title').text.split(' ')[2].to_i.to_f
-        @last_page = (total / jobs_x_page).round
-    end
+    attr_reader :last_page
+    attr_reader :jobs_x_page
+def initialize
+    $jobs_array = []
+    page_number = 1
 end
 
-#     def scraper
-#     while page_number <= last_page
+def start
+        url = URI.open('https://relocate.me/search')
+        clear_page = Nokogiri::HTML(url)
+        job_cards = clear_page.css('div.jobs-list__job')
+        @jobs_x_page = (job_cards.count.to_f - 1.0).to_i
+        total = clear_page.css('h1.search-page__title').text.split(' ')[2].to_i.to_f
+        @last_page = (total / @jobs_x_page).round
+        puts "there are #{@jobs_x_page} jobs in #{@last_page} pages"
+end
+end
+@logic = Logic.new
+@logic.start
+
+#     def scraper(last_page)
+#     while @@page_number <= last_page
 #       numbered_url = open("https://relocate.me/search?page=#{page_number}")
 #       numbered_clear_page = Nokogiri::HTML(numbered_url)
 #       numbered_job_cards = numbered_clear_page.css('div.jobs-list__job')
@@ -41,3 +51,8 @@ end
 #     store < scraper
 #   end
 # end
+
+def self.new_array
+    return @@jobs_array
+end
+
