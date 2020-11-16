@@ -1,14 +1,15 @@
 # [Build your own scraper]
 
-- In this project, im goint to build a scraper developed in Ruby using the Nokogiri gem
+- In this project, im going to build a scraper for the web page (https://relocate.me), developed in Ruby using the Nokogiri gem, it will give the user the option to choose how many pages of the page the user wants to scrap, and then print or save the result in a csv file. 
 
 
 ## Scrapper Instruccions
 
-In the terminal just run ruby scrapper.rb
-The scrapper will show the % of completion wile running.
-It will return an array including the index of the job search
-Each job search will include 
+In the terminal first start by installing the gems by writing $ bundle install
+Then in the folder bin, wich can be accesed through the terminal by cd bin you can run de file by writing ruby main.rb wich will run the program
+it will prompt to enter a valid numer depending on how many pages does the page have at the moment. 
+after the correct prompt is entered it will ask the user to save or print by writing "s" or "p" acordingly.
+print will print in the terminarl the array 
 - :title=>"Senior Product Manager in Barcelona, Spain", 
 - :company=>"Tilting Point", 
 - :url=>"https://relocate.me//spain/barcelona/tilting-point/senior-product-manager-6327"}

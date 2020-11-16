@@ -77,8 +77,10 @@ class Logic
     if var == 's'
       new_csv
     elsif var == 'p'
-      puts final_array
-      final_array
+      final_array.each_with_index do |x, y|
+        puts "#{y + 1} - #{x}"
+        puts ' '
+      end
     else
       false
     end
@@ -93,11 +95,3 @@ class Logic
     validate_p_s(gets.chomp) || try_again_2
   end
 end
-
-# @my_logic = Logic.new
-# puts "there are #{@my_logic.display_jobs_x_page.to_i} jobs per page in #{@my_logic.display_last_page.to_i} pages"
-# puts 'how many pages do you want you scrap?'
-
-# @my_logic.valid_number
-# puts @my_logic.final_array
-# @my_logic.new_csv
