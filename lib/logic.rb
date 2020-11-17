@@ -13,6 +13,16 @@ class Logic
     @last_page = (@total / @jobs_x_page).round
   end
 
+  def valid_number
+    validate(gets.chomp) || try_again
+  end
+
+  def valid_p_s
+    validate_p_s(gets.chomp) || try_again_2
+  end
+
+  private
+
   def display_last_page
     @last_page
   end
@@ -20,9 +30,13 @@ class Logic
   def display_jobs_x_page
     @jobs_x_page
   end
+# 
+  def is_positive?(num)
+    num.to_i <= display_last_page.to_i && num.to_i != 0
+  end
 
   def validate(var)
-    if var.to_i <= display_last_page.to_i && var.to_i != 0
+    if is_positive?(var)
       scraper(var)
     else
       false
@@ -46,7 +60,8 @@ class Logic
       numbered_job_cards = numbered_clear_page.css('div.jobs-list__job')
       numbered_job_cards.each do |x|
         job = {
-          title: x.css('a').text,
+          title: x.css('div.job__title b').text,
+          city: x.css('a').text.strip.split('in ')[1],
           company: x.css('div.job__company').text.strip,
           url: 'https://relocate.me/' + x.css('a').attribute('href').value
         }
@@ -91,7 +106,4 @@ class Logic
     valid_p_s
   end
 
-  def valid_p_s
-    validate_p_s(gets.chomp) || try_again_2
-  end
 end
