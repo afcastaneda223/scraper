@@ -5,11 +5,12 @@
 
 ## Scrapper Instruccions
 
-In the terminal first, start by installing the gems by writing $ bundle install.
-Then in the folder bin, which can be accessed through the terminal by writing $ cd bin, you can run the file by writing $ ruby main.rb which will run the program
-It will prompt you to enter a valid number depending on how many pages does the webpage has at the moment. 
-After the correct prompt is entered it will ask the user to save or print by writing "s" or "p" acordingly.
-print will print in the terminarl the array 
+1- In the terminal first, start by installing the gems by writing $ bundle install.
+2- Then in the folder bin, which can be accessed through the terminal by writing $ cd bin, you can run the file by writing $ ruby main.rb which will run the program.
+3- It will prompt you to enter a valid number depending on how many pages does the webpage has at the moment. 
+4- After the correct prompt is entered it will ask the user to save or print by writing "s" or "p" acordingly.
+print will print in the terminarl the array.
+
 - :title=>"Senior Product Manager in Barcelona, Spain", 
 - :company=>"Tilting Point", 
 - :url=>"https://relocate.me//spain/barcelona/tilting-point/senior-product-manager-6327"}
