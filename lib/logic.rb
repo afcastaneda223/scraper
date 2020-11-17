@@ -33,6 +33,23 @@ class Logic
     num.to_i <= display_last_page.to_i && num.to_i != 0
   end
 
+  def validate_p_s(var)
+    if var == 's'
+      new_csv
+      return true
+    elsif var == 'p'
+      final_array.each_with_index do |x, y|
+        puts "#{y + 1} - #{x}"
+        puts ' '
+        return true
+      end
+    else
+      false
+    end
+  end
+
+  private
+
   def validate(var)
     if number?(var)
       scraper(var)
@@ -44,19 +61,6 @@ class Logic
   def try_again
     puts 'Enter a valid number'
     valid_number
-  end
-
-  def validate_p_s(var)
-    if var == 's'
-      new_csv
-    elsif var == 'p'
-      final_array.each_with_index do |x, y|
-        puts "#{y + 1} - #{x}"
-        puts ' '
-      end
-    else
-      false
-    end
   end
 
   def try_again_2
