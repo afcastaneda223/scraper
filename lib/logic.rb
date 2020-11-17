@@ -48,6 +48,24 @@ class Logic
     valid_number
   end
 
+  def validate_p_s(var)
+    if var == 's'
+      new_csv
+    elsif var == 'p'
+      final_array.each_with_index do |x, y|
+        puts "#{y + 1} - #{x}"
+        puts ' '
+      end
+    else
+      false
+    end
+  end
+
+  def try_again_2
+    puts 'Enter s or p'
+    valid_p_s
+  end
+
   def scraper(last_page)
     page_number = 1
     while page_number <= last_page.to_i
@@ -83,23 +101,5 @@ class Logic
         csv << h.values
       end
     end
-  end
-
-  def validate_p_s(var)
-    if var == 's'
-      new_csv
-    elsif var == 'p'
-      final_array.each_with_index do |x, y|
-        puts "#{y + 1} - #{x}"
-        puts ' '
-      end
-    else
-      false
-    end
-  end
-
-  def try_again_2
-    puts 'Enter s or p'
-    valid_p_s
   end
 end
