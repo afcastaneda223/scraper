@@ -36,12 +36,10 @@ class Logic
   def validate_p_s(var)
     if var == 's'
       new_csv
-      return true
     elsif var == 'p'
       final_array.each_with_index do |x, y|
         puts "#{y + 1} - #{x}"
         puts ' '
-        return true
       end
     else
       false
