@@ -86,7 +86,6 @@ class Logic
       porc = (page_number / (last_page.to_i + 1).to_f) * 100
       puts " #{porc.to_i.round}%"
     end
-    puts "There are #{@jobs_array.count} jobs to apply"
     @jobs_array
   end
 
