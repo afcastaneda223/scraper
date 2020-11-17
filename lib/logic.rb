@@ -29,8 +29,6 @@ class Logic
     @jobs_x_page
   end
 
-  private
-
   def number?(num)
     num.to_i <= display_last_page.to_i && num.to_i != 0
   end
