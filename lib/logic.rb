@@ -21,8 +21,6 @@ class Logic
     validate_p_s(gets.chomp) || try_again_2
   end
 
-  private
-
   def display_last_page
     @last_page
   end
@@ -30,13 +28,15 @@ class Logic
   def display_jobs_x_page
     @jobs_x_page
   end
-# 
-  def is_positive?(num)
+
+  private
+
+  def number?(num)
     num.to_i <= display_last_page.to_i && num.to_i != 0
   end
 
   def validate(var)
-    if is_positive?(var)
+    if number?(var)
       scraper(var)
     else
       false
@@ -48,10 +48,6 @@ class Logic
     valid_number
   end
 
-  def valid_number
-    validate(gets.chomp) || try_again
-  end
-
   def scraper(last_page)
     page_number = 1
     while page_number <= last_page.to_i
@@ -61,7 +57,8 @@ class Logic
       numbered_job_cards.each do |x|
         job = {
           title: x.css('div.job__title b').text,
-          city: x.css('a').text.strip.split('in ')[1],
+          city: x.css('a').text.strip.split('in ')[1].split(',')[0],
+          country: x.css('a').text.strip.split('in ')[1].split(', ')[1],
           company: x.css('div.job__company').text.strip,
           url: 'https://relocate.me/' + x.css('a').attribute('href').value
         }
@@ -105,5 +102,4 @@ class Logic
     puts 'Enter s or p'
     valid_p_s
   end
-
 end
