@@ -28,6 +28,21 @@ class User
     validate_p_s(gets.chomp) || try_again_2
   end
 
+  def valid_y_n
+    validate_y_n(gets.chomp) || try_again_3
+  end
+
+  def validate_y_n(var)
+    if var == 'yes'
+      new_search
+    elsif var == 'no'
+      puts 'Thank you!'
+      true
+    else
+      false
+    end
+  end
+
   def number?(num)
     num.to_i <= @my_logic.display_last_page.to_i && num.to_i != 0
   end
@@ -68,20 +83,6 @@ class User
     valid_y_n
   end
 
-  def valid_y_n
-    validate_y_n(gets.chomp) || try_again_3
-  end
-
-  def validate_y_n(var)
-    if var == 'yes'
-      new_search
-    elsif var == 'no'
-      puts 'Thank you!'
-      true
-    else
-      false
-    end
-  end
 end
 
 @my_user = User.new
