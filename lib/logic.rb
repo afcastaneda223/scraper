@@ -13,57 +13,12 @@ class Logic
     @last_page = (@total / @jobs_x_page).round
   end
 
-  def valid_number
-    validate(gets.chomp) || try_again
-  end
-
-  def valid_p_s
-    validate_p_s(gets.chomp) || try_again_2
-  end
-
   def display_last_page
     @last_page
   end
 
   def display_jobs_x_page
     @jobs_x_page
-  end
-
-  def number?(num)
-    num.to_i <= display_last_page.to_i && num.to_i != 0
-  end
-
-  def validate_p_s(var)
-    if var == 's'
-      new_csv
-    elsif var == 'p'
-      final_array.each_with_index do |x, y|
-        puts "#{y + 1} - #{x}"
-        puts ' '
-      end
-    else
-      false
-    end
-  end
-
-  private
-
-  def validate(var)
-    if number?(var)
-      scraper(var)
-    else
-      false
-    end
-  end
-
-  def try_again
-    puts 'Enter a valid number'
-    valid_number
-  end
-
-  def try_again_2
-    puts 'Enter s or p'
-    valid_p_s
   end
 
   def scraper(last_page)
@@ -83,8 +38,7 @@ class Logic
         @jobs_array << job
       end
       page_number += 1
-      porc = (page_number / (last_page.to_i + 1).to_f) * 100
-      puts " #{porc.to_i.round}%"
+      porcentage(page_number, last_page)
     end
     @jobs_array
   end
@@ -100,5 +54,12 @@ class Logic
         csv << h.values
       end
     end
+  end
+
+  private
+
+  def porcentage(num, var)
+    porc = (num / (var.to_i + 1).to_f) * 100
+    puts " #{porc.to_i.round}%"
   end
 end

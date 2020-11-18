@@ -3,17 +3,20 @@
 - In this project, I'm going to build a scraper for the web page (https://relocate.me), developed in Ruby using the Nokogiri gem, it will give the user the option to choose how many pages to target, and then print or save the result in a .csv file. 
 
 
-## Scrapper Instruccions
+## Scrapper Instructions
 
 1. In the terminal first, start by installing the gems by writing $ bundle install.
-2. Then in the folder bin, which can be accessed through the terminal by writing $ cd bin, you can run the file by writing $ ruby main.rb which will run the program.
+2. Then in the folder bin, ruby bin/main.rb which can be accessed through the terminal by writing $ cd bin to acces the folder, then you can run the file by writing $ ruby main.rb which will run the program.
 3. It will prompt you to enter a valid number depending on how many pages does the webpage has at the moment. 
 4. After the correct prompt is entered it will ask the user to save or print by writing "s" or "p" acordingly.
 print will print in the terminarl the array.
+5. Finally it will promt you to do a new search.
 
-- :title=>"Senior Product Manager in Barcelona, Spain", 
-- :company=>"Tilting Point", 
-- :url=>"https://relocate.me//spain/barcelona/tilting-point/senior-product-manager-6327"}
+- :title=>"Ruby Backend Developer"
+- :city=>"Heidelberg" 
+- :country=>"Germany" 
+- :company=>"Getsafe" 
+- :url=>"https://relocate.me//germany/heidelberg/getsafe/ruby-backend-developer-5124"
 
 
 ## Scrapper preview
@@ -28,7 +31,7 @@ print will print in the terminarl the array.
 ## Built With
 
 - Ruby
-- Nocogiri gem
+- Nokogiri gem
 - Rubocop
 
 
