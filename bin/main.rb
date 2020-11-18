@@ -2,7 +2,7 @@ require_relative '../lib/logic.rb'
 require 'nokogiri'
 require 'open-uri'
 
-class User
+class User1
   def initialize
     @my_logic = Logic.new
   end
@@ -82,8 +82,7 @@ class User
     puts 'Enter yes or no'
     valid_y_n
   end
-
 end
 
-@my_user = User.new
+@my_user = User1.new
 @my_user.new_search
