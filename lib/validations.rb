@@ -1,7 +1,22 @@
+require_relative '../bin/main.rb'
+
 class Validations
-  def valid_number
-    validate(gets.chomp) || try_again
+
+  def initialize
+    @my_logic = Logic.new
+    @my_main = Main.new
   end
+
+  def valid_number(var)
+    if var.to_i <= @my_logic.display_last_page.to_i && var.to_i != 0
+        @my_logic.scraper(var)
+    else
+        puts 'Enter a valid number'
+        valid_number   
+    end     
+  end
+
+
 
   def validate_p_s(var)
     if var == 's'
@@ -14,11 +29,6 @@ class Validations
     else
       false
     end
-    end
-
-  def try_again
-    puts 'Enter a valid number'
-    valid_number
   end
 
   def valid_p_s
@@ -61,4 +71,7 @@ class Validations
     puts 'Enter yes or no'
     valid_y_n
   end
-  end
+end
+
+@my_valid = Validations.new
+@my_valid.valid_number(1)
