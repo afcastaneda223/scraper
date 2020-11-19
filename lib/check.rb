@@ -1,11 +1,12 @@
+# rubocop:disable Metrics/AbcSize
 # rubocop:disable Metrics/MethodLength
 # rubocop:disable LineLength
 require_relative '../lib/logic.rb'
+
 # checks for valid input and uses response
 class Check
   def initialize
     @my_logic = Logic.new
-    @my_user = User1.new
   end
 
   def loop1
@@ -29,7 +30,8 @@ class Check
         puts ' '
       end
     elsif loop1 == 'yes'
-      @my_user.new_search
+      user = User1.new
+      user.new_search
     elsif loop1 == 'no'
       puts 'Thank you!'
       true
@@ -43,5 +45,6 @@ class Check
   end
 end
 
+# rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/MethodLength
 # rubocop:enable LineLength
