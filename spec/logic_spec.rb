@@ -1,4 +1,4 @@
-require '../lib/logic.rb'
+require_relative '../lib/logic.rb'
 
 describe Logic do
   let(:logic) { Logic.new }
