@@ -8,4 +8,12 @@ describe Logic do
       expect(logic.scraper(rand_num)).to eq(logic.final_array)
     end
   end
+
+  describe '#scraper' do
+    let(:rand_num) { rand(1..3) }
+    it 'matches output?' do
+      expect(logic.scraper('cxzc')).to eq([])
+    end
+  end
+
 end

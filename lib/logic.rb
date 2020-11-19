@@ -1,15 +1,20 @@
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/MethodLength
+# rubocop:disable LineLength
+
 require 'nokogiri'
 require 'open-uri'
 require 'csv'
 
+# logic for scraper
 class Logic
   def initialize
-    @jobs_array = []
     @url = URI.open('https://relocate.me/search')
     @clear_page = Nokogiri::HTML(@url)
     @job_cards = @clear_page.css('div.jobs-list__job')
-    @jobs_x_page = (@job_cards.count.to_f - 1.0).to_i
     @total = @clear_page.css('h1.search-page__title').text.split(' ')[2].to_i.to_f
+    @jobs_array = []
+    @jobs_x_page = (@job_cards.count.to_f - 1.0).to_i
     @last_page = (@total / @jobs_x_page).round
   end
 
@@ -24,10 +29,10 @@ class Logic
   def scraper(last_page)
     page_number = 1
     while page_number <= last_page.to_i
-      numbered_url = URI.open("https://relocate.me/search?page=#{page_number}")
-      numbered_clear_page = Nokogiri::HTML(numbered_url)
-      numbered_job_cards = numbered_clear_page.css('div.jobs-list__job')
-      numbered_job_cards.each do |x|
+      @numbered_url = URI.open("https://relocate.me/search?page=#{page_number}")
+      @numbered_clear_page = Nokogiri::HTML(@numbered_url)
+      @numbered_job_cards = @numbered_clear_page.css('div.jobs-list__job')
+      @numbered_job_cards.each do |x|
         job = {
           title: x.css('div.job__title b').text,
           city: x.css('a').text.strip.split('in ')[1].split(',')[0],
@@ -48,9 +53,9 @@ class Logic
   end
 
   def new_csv
-    array = final_array
-    CSV.open('scraper.csv', 'wb', headers: array.first.keys, write_headers: true) do |csv|
-      array.each do |h|
+    a = final_array
+    CSV.open('scraper.csv', 'wb', headers: a.first.keys, write_headers: true) do |csv|
+      a.each do |h|
         csv << h.values
       end
     end
@@ -63,3 +68,10 @@ class Logic
     puts " #{porc.to_i.round}%"
   end
 end
+
+@my_logic = Logic.new
+puts @my_logic.final_array
+
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable LineLength
