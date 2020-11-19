@@ -57,7 +57,3 @@ end
 # rubocop:enable LineLength
 # rubocop: enable Metrics/PerceivedComplexity:
 # rubocop: enable Metrics/CyclomaticComplexity:
-
-@check1 = Check.new
-puts @check1.loop1
-puts @check1.loop1('s')
