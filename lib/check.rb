@@ -1,6 +1,9 @@
 # rubocop:disable Metrics/AbcSize
 # rubocop:disable Metrics/MethodLength
 # rubocop:disable LineLength
+# rubocop: disable Metrics/PerceivedComplexity:
+# rubocop: disable Metrics/CyclomaticComplexity:
+
 require_relative '../lib/logic.rb'
 
 # checks for valid input and uses response
@@ -9,10 +12,14 @@ class Check
     @my_logic = Logic.new
   end
 
-  def loop1
-    var = nil
+  def loop1(entry = nil)
+    var = entry
     loop do
-      var = gets.chomp
+      var = if !entry.nil?
+              entry
+            else
+              gets.chomp
+            end
       break if number?(var) || var == 's' || var == 'p' || var == 'yes' || var == 'no'
       puts 'Enter a valid option'
     end
@@ -48,3 +55,9 @@ end
 # rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/MethodLength
 # rubocop:enable LineLength
+# rubocop: enable Metrics/PerceivedComplexity:
+# rubocop: enable Metrics/CyclomaticComplexity:
+
+@check1 = Check.new
+puts @check1.loop1
+puts @check1.loop1('s')
