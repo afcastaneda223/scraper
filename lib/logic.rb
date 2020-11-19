@@ -69,9 +69,6 @@ class Logic
   end
 end
 
-@my_logic = Logic.new
-puts @my_logic.final_array
-
 # rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/MethodLength
 # rubocop:enable LineLength
